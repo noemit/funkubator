@@ -6,7 +6,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+        sans: ["Helvetica Neue", ...defaultTheme.fontFamily.sans],
+      },
+      gridTemplateColumns: {
+        '16': 'repeat(16, minmax(0, 1fr))'
       },
     },
   },

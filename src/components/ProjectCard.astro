@@ -3,60 +3,57 @@ import type { Project } from "@/data/projects";
 
 type Props = Project;
 
-const { title, techs, link, isComingSoon } = Astro.props;
+const { title, description, link, noLink } = Astro.props;
 
-const formatTechs = (values: string[]) =>
-  values.toString().replaceAll(",", " • ");
 ---
 
 <>
   {
-    isComingSoon && (
-      <div class="t group flex w-full flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 md:flex-row md:items-center">
-        <div class="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-          <p class="text-neutral-100">{title}</p>
-          <p>{formatTechs(techs)}</p>
-        </div>
+    noLink && (
+    <div class="t group w-full rounded-md border border-neutral-700 p-4 md:grid md:grid-cols-4 md:gap-4 md:items-center">
+    <!-- Set the title to occupy 1 out of 4 columns -->
+    <p class="text-purple-500	 col-span-1 px-4">{title}</p>
+    <!-- Set the description to occupy the remaining 3 out of 4 columns -->
+    <p class="col-span-3">{description}</p>
+</div>
 
-        <p class="w-fit rounded-md bg-neutral-900 px-4 py-1">Soon</p>
-      </div>
     )
   }
 
   {
-    !isComingSoon && (
-      <a
-        class="group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 md:flex-row md:items-center"
-        href={link}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <div class="flex flex-col gap-4 md:flex-row md:items-center">
-          <p class="text-neutral-100">{title}</p>
-          <p>{formatTechs(techs)}</p>
-        </div>
+    !noLink && (
+    <a
+    class="group w-full cursor-pointer grid gap-2 grid-cols-16 md:grid-cols-16 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 md:items-center"
+    href={`tags/` + link}
+    target="_blank"
+    rel="noreferrer"
+>
+    <p class="text-teal-500 col-span-4 px-4">{title}</p>
+    
+    <p class="col-span-11">{description}</p>
 
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          class="transition-all duration-300 group-hover:translate-x-1"
-        >
-          <path
+    <svg
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        class="col-span-1 justify-self-end transition-all duration-300 group-hover:translate-x-1"
+    >
+        <path
             d="M5.25 12.75L12.75 5.25"
             stroke="#999999"
             stroke-linecap="round"
             stroke-linejoin="round"
-          />
-          <path
+        />
+        <path
             d="M5.25 5.25H12.75V12.75"
             stroke="#999999"
             stroke-linecap="round"
             stroke-linejoin="round"
-          />
-        </svg>
-      </a>
+        />
+    </svg>
+</a>
+
     )
   }
 </>

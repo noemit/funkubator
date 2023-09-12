@@ -1,16 +1,41 @@
 ---
-import { getCollection } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import formatDate from "@/utils/formatDate";
+import getProjectTitleBySlug from "@/utils/getProjectTitleBySlug"
 
-const posts = (await getCollection("posts")).sort(function (first, second) {
-  return second.data.publishedAt.getTime() - first.data.publishedAt.getTime();
-});
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+// Create a groupedPosts object to group posts by their slug
+const groupedPosts = posts.reduce((acc, post) => {
+  if (!acc[post.data.category]) {
+    acc[post.data.category] = [];
+  }
+  acc[post.data.category].push(post);
+  return acc;
+}, {});
+
+const returnValue = Object.entries(groupedPosts).map(([slug, posts]) => ({
+  params: { slug },
+  props: { posts }
+}));
+  return returnValue;
+}
+
+type Props = {
+  posts: CollectionEntry<"posts">;
+};
+
+const { posts } = Astro.props;
+const { slug } = Astro.params;
+
+
+
 ---
-
-<Layout title="Funkubator.com - Ideas">
+<Layout title={"Ideas about " + getProjectTitleBySlug(slug)}>
   <main class="flex flex-col gap-20">
-    <h1 class="text-2xl text-neutral-100">Ideas</h1>
+    <h1 class="text-2xl text-neutral-100">Ideas about {getProjectTitleBySlug(slug)}</h1>
 
     <article class="flex flex-col gap-4">
       {

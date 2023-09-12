@@ -2,6 +2,7 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import formatDate from "@/utils/formatDate";
+import getProjectTitleBySlug from "@/utils/getProjectTitleBySlug"
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -23,12 +24,15 @@ const { Content } = await post.render();
 <Layout title={post.data.title} description={post.data.description}>
   <main class="post mx-auto flex w-full max-w-prose flex-col gap-4">
     <header role="presentation">
-      <h1 class="text-md">
-        {post.data.title} - {formatDate(post.data.publishedAt)}
+      <p>{formatDate(post.data.publishedAt)} - <a href={"/tags/" + post.data.category}>{getProjectTitleBySlug(post.data.category)}</a></p>
+
+      <h1 class="mt-10 text-indigo-200">
+        {post.data.title}
       </h1>
-      <p class="italic">{post.data.description}</p>
+      <p class="font-semibold text-lg my-2 underline decoration-sky-500 text-stone-200">{post.data.description}</p>
     </header>
 
     <Content />
   </main>
 </Layout>
+@/utils/getCategoryTitleBySlug
