@@ -4,7 +4,7 @@ publishedAt: 2023-05-24
 category: "patience"
 description: "turns out there's more than one way to skin a cat"
 slug: "your-process-is-wrong"
-isPublish: false
+isPublish: true
 ---
 
 _“Your Process is Wrong”_ is code for *“You don’t do things like other people do things.”*
