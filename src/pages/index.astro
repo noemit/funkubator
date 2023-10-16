@@ -31,7 +31,7 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
       }
 
       <div class="flex flex-col gap-8">
-        <h1 class="text-3xl text-neutral-100"
+        <h1 class="text-3xl text-neutral-900"
         set:html={convertAsteriskToPrimaryStrongTag(presentation.heading)}
         />
 
@@ -67,39 +67,6 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
       </section>
     </article>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
-          Principles
-        </h3>
-      </header>
-      {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
-
-      <section class="flex flex-col gap-4">
-        {
-          projects.length !== 0 &&
-            projects.map((project) => <ProjectCard {...project} />)
-        }
-      </section>
-    </article>
-
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
-          Services
-        </h3>
-      </header>
-
-      {presentation.services.length === 0 && <p>Oops, I must work^^^^^</p>}
-
-      <section class="flex flex-col gap-4">
-        {
-          presentation.services.length !== 0 &&
-          presentation.services.map((service) => <ProjectCard title={service.name} {...service} noLink={true}/>)
-        }
-      </section>
-
-    </article>
-
+   
   </main>
 </Layout>

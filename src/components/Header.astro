@@ -8,8 +8,8 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
   <a
           href="/"
           class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === "/",
+            ["hover:text-blue-500"]: true,
+            ["text-blue-500"]: pathname === "/",
           }}>{presentation.title}</a
         >
         
@@ -21,8 +21,8 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
         <a
           href="/"
           class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === "/",
+            ["hover:text-blue-500"]: true,
+            ["text-blue-500"]: pathname === "/",
           }}>Home</a
         >
       </li>
@@ -30,7 +30,7 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
       <li>
         <a
           href={presentation.socials[0].link}
-          class="hover:text-neutral-100">{presentation.socials[0].label}</a
+          class="hover:text-blue-500">{presentation.socials[0].label}</a
         >
       </li>
       <li>/</li>
@@ -38,9 +38,19 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
         <a
           href="/posts"
           class:list={{
-            ["hover:text-neutral-100"]: true,
-            ["text-neutral-100"]: pathname === "/posts",
+            ["hover:text-blue-500"]: true,
+            ["text-blue-500"]: pathname === "/posts",
           }}>Ideas</a
+        >
+      </li>
+      <li>/</li>
+      <li>
+        <a
+          href="/about"
+          class:list={{
+            ["hover:text-blue-500"]: true,
+            ["text-blue-500"]: pathname === "/posts",
+          }}>About</a
         >
       </li>
      

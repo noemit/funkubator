@@ -14,10 +14,10 @@ type Theme = {
 const theme: Theme = {
   colors: {
     primary: "pink",
-    secondary: "yellow",
+    secondary: "pink",
     blur: {
-      top: "orange",
-      bottom: "violet",
+      top: "pink",
+      bottom: "pink",
     },
   },
 };

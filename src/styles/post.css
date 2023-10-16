@@ -11,19 +11,19 @@
 }
 
 .post strong {
-  @apply  text-purple-300 font-semibold;
+  @apply  text-indigo-900 font-semibold;
 }
 
 .post h1 {
-  @apply mt-6 text-3xl text-neutral-100;
+  @apply mt-6 text-3xl text-neutral-900;
 }
 
 .post h2 {
-  @apply mt-6 text-xl text-neutral-100;
+  @apply mt-6 text-xl text-neutral-900;
 }
 
 .post h3 {
-  @apply mt-4 text-xl text-lime-400;
+  @apply mt-4 text-xl text-lime-900;
 }
 
 .post code {
@@ -31,7 +31,7 @@
 }
 
 .post a {
-  @apply text-neutral-100 underline;
+  @apply text-blue-400 underline;
 }
 
 .post ul {

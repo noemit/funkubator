@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/Layout.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+import PostCard from "@/components/PostCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Link from "@/components/shared/Link.astro";
+import { convertAsteriskToPrimaryStrongTag, convertAsteriskToSecondaryStrongTag} from "@/utils/convertAsteriskToStrongTag";
+
+import presentation from "@/data/presentation";
+import projects from "@/data/projects";
+
+const posts = (await getCollection("posts")).sort(function (first, second) {
+  return second.data.publishedAt.getTime() - first.data.publishedAt.getTime();
+});
+---
+
+<Layout>
+  <main class="flex flex-col gap-20">
+
+
+    <article class="flex flex-col gap-8">
+      <header class="flex w-full flex-row justify-between gap-2">
+        <h3 class="text-lg text-neutral-900">
+          Principles
+        </h3>
+      </header>
+      {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
+
+      <section class="flex flex-col gap-4">
+        {
+          projects.length !== 0 &&
+            projects.map((project) => <ProjectCard {...project} />)
+        }
+      </section>
+    </article>
+
+    <article class="flex flex-col gap-8">
+      <header class="flex w-full flex-row justify-between gap-2">
+        <h3 class="text-lg text-neutral-900">
+          Services
+        </h3>
+      </header>
+
+      {presentation.services.length === 0 && <p>Oops, I must work^^^^^</p>}
+
+      <section class="flex flex-col gap-4">
+        {
+          presentation.services.length !== 0 &&
+          presentation.services.map((service) => <ProjectCard title={service.name} {...service} noLink={true}/>)
+        }
+      </section>
+
+    </article>
+
+  </main>
+</Layout>

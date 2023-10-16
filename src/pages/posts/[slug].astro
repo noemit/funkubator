@@ -26,13 +26,12 @@ const { Content } = await post.render();
     <header role="presentation">
       <p>{formatDate(post.data.publishedAt)} - <a href={"/tags/" + post.data.category}>{getProjectTitleBySlug(post.data.category)}</a></p>
 
-      <h1 class="mt-10 text-indigo-200">
+      <h1 class="mt-10 text-indigo-900">
         {post.data.title}
       </h1>
-      <p class="font-semibold text-lg my-2 underline decoration-sky-500 text-stone-200">{post.data.description}</p>
+      <p class="font-semibold text-lg my-2 underline decoration-sky-500 text-stone-900">{post.data.description}</p>
     </header>
 
     <Content />
   </main>
 </Layout>
-@/utils/getCategoryTitleBySlug
