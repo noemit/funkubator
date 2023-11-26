@@ -9,7 +9,7 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
           href="/"
           class:list={{
             ["hover:text-blue-500"]: true,
-            ["text-blue-500"]: pathname === "/",
+            ["text-pink-500"]: pathname === "/",
           }}>{presentation.title}</a
         >
         
@@ -22,25 +22,8 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
           href="/"
           class:list={{
             ["hover:text-blue-500"]: true,
-            ["text-blue-500"]: pathname === "/",
+            ["text-pink-500"]: pathname === "/",
           }}>Home</a
-        >
-      </li>
-      <li>/</li>
-      <li>
-        <a
-          href={presentation.socials[0].link}
-          class="hover:text-blue-500">{presentation.socials[0].label}</a
-        >
-      </li>
-      <li>/</li>
-      <li>
-        <a
-          href="/posts"
-          class:list={{
-            ["hover:text-blue-500"]: true,
-            ["text-blue-500"]: pathname === "/posts",
-          }}>Ideas</a
         >
       </li>
       <li>/</li>
@@ -49,7 +32,7 @@ const pathname = removeTrailingSlash(Astro.url.pathname);
           href="/about"
           class:list={{
             ["hover:text-blue-500"]: true,
-            ["text-blue-500"]: pathname === "/posts",
+            ["text-pink-500"]: pathname === "/about",
           }}>About</a
         >
       </li>

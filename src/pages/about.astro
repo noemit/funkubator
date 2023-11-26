@@ -23,36 +23,11 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-lg text-neutral-900">
-          Principles
+          About Funkubator
         </h3>
       </header>
       {projects.length === 0 && <p>Oops, I must work^^^^^</p>}
-
-      <section class="flex flex-col gap-4">
-        {
-          projects.length !== 0 &&
-            projects.map((project) => <ProjectCard {...project} />)
-        }
-      </section>
-    </article>
-
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-900">
-          Services
-        </h3>
-      </header>
-
-      {presentation.services.length === 0 && <p>Oops, I must work^^^^^</p>}
-
-      <section class="flex flex-col gap-4">
-        {
-          presentation.services.length !== 0 &&
-          presentation.services.map((service) => <ProjectCard title={service.name} {...service} noLink={true}/>)
-        }
-      </section>
-
-    </article>
+<article>Funkubator is an incubator for ideas. Our focus is making both building and enjoying products fun. The rest is up to you.</article>
 
   </main>
 </Layout>

@@ -21,10 +21,10 @@ type Presentation = {
 const presentation: Presentation = {
   mail: "noemi.titarenco@gmail.com",
   title: "Funkubator",
-  heading: "*imagine a world where the artist is the rule,* not the exception",
+  heading: "*A lot of incubators give companies a leg up. We don't.* The adversity paradox is the idea that we get stronger from adversity even though we rarely seek it out. Companies operate in the same way. Adding friction, difficulty and minimal support ensures only the best ideas and founders (and idea/founder combos) move forward. We don't really think there are any bad founders, just people who haven't found their thing yet. Struggle. Find your thing. Funkubate. Different is good. If it's not fun, it's not worth it. If its not fun, you'll stop as soon as it gets hard. *Sometimes the best decision can be overshadowed by a slightly worse decision that’s just more fun to do. When in doubt, choose fun.* Less is more: less hustle, less noise, less features. Stop kidding yourself, it *is* supposed to be fun. ",
   // profile: "/profile.webp",
   description:
-    "*We work with builders to cultivate real value in the early stage of software product development.* We take this same vision and bring it to our enterprise partners to develop high-engagement prototypes and products.",
+    "Welcome. *Funkubator is a world where you, the artist, are the rule, not the exception.*",
   socials: [
     {
       label: "Contact",
